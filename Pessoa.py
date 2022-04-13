@@ -1,12 +1,11 @@
 
 class Pessoa():
 
+    ##  Atributos de classe
+    
     id_pessoa=""
     nome_pessoa=""
     nascimento_pessoa=""
-
-    
-
 
 
     def set_id_pessoa(self,novo_id_pessoa):
@@ -27,15 +26,15 @@ class Pessoa():
         except Exception as e:
             print("erro metodo set_data_pessoa",str(e))            
 
-def cadastra_pessoa(self):
+    def cadastra_pessoa(self):
         try:
-            entrada01=input("Qual o ID do pessoa")
+            entrada01=input("Qual o ID do pessoa: ")
             self.set_id_pessoa(entrada01)
 
-            entrada02=input("Qual o nome da pessoa")
+            entrada02=input("Qual o nome da pessoa: ")
             self.set_nome_pessoa(entrada02)
             
-            entrada03=input("Qual a data de nascimento dd/mm/yy")
+            entrada03=input("Qual a data de nascimento dd/mm/yy: ")
             self.set_data_pessoa(entrada03)
 
         except Exception as e:

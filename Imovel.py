@@ -1,5 +1,8 @@
 
 class Imovel():
+    
+    ##  Atributos de classe
+    
     id_imovel=""
     logradouro_imovel=""
     CEP_imovel=""
@@ -8,16 +11,16 @@ class Imovel():
 
     def cadastra_imovel(self):
         try:
-            entrada01=input("Qual o ID do imovel ")
+            entrada01=input("Qual o ID do imovel: ")
             self.set_id_imovel(entrada01)
 
-            entrada02=input("Qual o endereco do imóvel ")
+            entrada02=input("Qual o endereco do imóvel: ")
             self.set_logradouro(entrada02)
             
-            entrada03=input("Qual o CEP do imovel ")
+            entrada03=input("Qual o CEP do imovel (sem pontos e sem traços): ")
             self.set_CEP(entrada03)
 
-            enttrada04=input("Qual o bairro do imóvel ")
+            entrada04=input("Qual o bairro do imóvel: ")
             self.set_bairro(entrada04)
             
             entrada05=input("Em qual cidade o imvovel está localizado ")

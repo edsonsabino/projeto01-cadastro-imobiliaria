@@ -3,13 +3,15 @@ from Imovel import Imovel
 from Pessoa import Pessoa
 
 class Cadastro(Pessoa,Imovel, Aluguel):
-
+    
+    ##  Atributos de classe
+    
     var_pessoa=Pessoa()
     var_imovel=Imovel()
     var_aluguel=Aluguel()
     respota=''
 
-    def __init__(self):
+    def faz_cadastro(self):
 
         print("O que voce gostaria de fazer ")
         print ("1 - para cadastrar um novo inquilino")
@@ -21,14 +23,16 @@ class Cadastro(Pessoa,Imovel, Aluguel):
         except Exception as e:
             print("erro em Cadastro", str(e))
 
-    if self.resposta in [1,2]:
-        self.var_pessoa.cadastra_pessoa()
-    elif self.resposta == 3:
-        self.var_imovel.cadastra_imovel()
-    elif self.resposta == 4:
-        self.var_aluguel.cadastra_aluguel()
-    else:
-        print("Algo deu errado")
+        if self.resposta in [1,2]:
+            self.var_pessoa.cadastra_pessoa()
+        elif self.resposta == 3:
+            self.var_imovel.cadastra_imovel()
+        elif self.resposta == 4:
+            self.var_aluguel.cadastra_aluguel()
+        else:
+            print("Algo deu errado")
+        
+        print("Cadastrado!")
 
 
 
