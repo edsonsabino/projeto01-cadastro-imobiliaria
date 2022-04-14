@@ -63,7 +63,7 @@ class interageDB:
             
     ##  Método inserir
     
-    def inserir(self, nome_tabela, lista_atributos, lista_valores):
+    def insert_table(self, nome_tabela, lista_atributos, lista_valores):
         
         #   montando strings (eliminado 27/11)
         #str_list_atrib=func_gera_str(lista_atributos)
@@ -71,16 +71,20 @@ class interageDB:
         #print(str_list_atrib)
         
         
-        str_list_atrib=lista_atributos
-        str_list_val=lista_valores
         
+        str_list_atrib= ", ".join(lista_atributos)
+        str_list_val=", ".join(lista_valores)
+        
+        print(str_list_atrib)
         try:
             obj_con, ft = self.conectar()
-            query="INSERT INTO "+nome_tabela+"("+str_list_atrib+")"+ " VALUES" +"(" +str_list_val+")"+";"
+            #query="INSERT INTO "+nome_tabela+"("+str_list_atrib+")"+ " VALUES" +"(" +str_list_val+")"+";"
+            query="insert into tbl_inquilinos (nome, data_nasc) values ('Santos Dumont', '1873-07-20');"
+            print(query)
             ft.execute(query)
             obj_con.commit()
         except Exception as e:
-            print("Erro em inserir", str(e))
+            print("Erro em insert_table", str(e))
         finally:
             self.desconectar(obj_con, ft)
     
