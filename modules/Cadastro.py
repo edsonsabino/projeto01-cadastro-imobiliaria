@@ -9,6 +9,7 @@ class Cadastro(Pessoa,Imovel, Aluguel):
     var_pessoa=Pessoa()
     var_imovel=Imovel()
     var_aluguel=Aluguel()
+var_interageDB=InterageDB(_as quatro informações_)
     respota=''
 
     def faz_cadastro(self):
@@ -31,7 +32,7 @@ class Cadastro(Pessoa,Imovel, Aluguel):
             self.var_aluguel.cadastra_aluguel()
         else:
             print("Algo deu errado")
-        
+        # Esse print está mal colocado. Todo mundo com erro ou sem teria essa essa mensagem
         print("Cadastrado!")
 
 
