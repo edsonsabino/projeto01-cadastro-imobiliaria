@@ -3,13 +3,14 @@ class Pessoa():
 
     ##  Atributos de classe
     
-    id_pessoa=""
+    #id_pessoa=""
     nome=""
-    nascimento=""
+    data_nasc=""
     
     ##  Colhe as informações
 
     def cadastra_pessoa(self):
+
         try:
 
             entrada02=input("Qual o nome da pessoa: ")
@@ -17,11 +18,13 @@ class Pessoa():
             
             entrada03=input("Qual a data de nascimento yyyy-mm-dd: ")
             self.set_data_pessoa(entrada03)
-
+                
+           
         except Exception as e:
             print("erro em coleta informação", str(e))
-            
-        self.insert_table("tbl_inquilinos",list_atributos,list_valores)
+ 
+        #1
+        # self.insert_table("tbl_inquilinos",list_atributos,list_valores)
 
     ##  Setters
 
@@ -33,7 +36,7 @@ class Pessoa():
 
     def set_data_pessoa(self,novo_data_pessoa):
         try: 
-            self.nascimento=novo_data_pessoa
+            self.data_nasc=novo_data_pessoa
         except Exception as e:
             print("erro metodo set_data_pessoa",str(e))            
 

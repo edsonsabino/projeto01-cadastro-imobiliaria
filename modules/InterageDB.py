@@ -1,5 +1,5 @@
-from logging import exception
 import mysql.connector
+
 #TO DO: função que cria a string da query
 class interageDB:
     
@@ -11,7 +11,7 @@ class interageDB:
     nome_banco=""
     
     ##  Construtor da classe    
-    def __init__(self,vusuario,vsenha,vhost,vnome_banco):
+    def __init__(self,vusuario='root',vsenha="#Es181192",vhost="localhost",vnome_banco="db_imobiliaria"):
         
         try:
             self.usuario=vusuario
@@ -79,7 +79,7 @@ class interageDB:
             self.desconectar(obj_con, ft)
             
     ##  Método inserir    
-    def inser_one(self, nome_tabela, lista_atributos, lista_valores):
+    def insert_one(self, nome_tabela, lista_atributos, lista_valores):
         """Inserts data into the table one row at a time
 
         Args:
