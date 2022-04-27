@@ -1,9 +1,12 @@
+from functions.replace_duplicates import replace_duplicates
 from modules.InterageDB import interageDB
+from functions.df_to_database import df_to_database
+from functions.csv_to_df import csv_to_df
 import pandas as pd
 import os 
 
 ##   instanciar banco
-#obj_banco=interageDB("root","#Es181192","localhost","db_imobiliaria")
+obj_banco=interageDB("root","#Es181192","localhost","db_imobiliaria")
 
 ##   Path folder with csv's
 
@@ -12,49 +15,33 @@ csv_folder='csv_data'               #   Folder with csv files
 
 path_csv_folder=os.path.join(current_folder,csv_folder) #   path to csv folder
 
-csv_names=["inquilinos_mock.csv",
-           "proprietarios_mock.csv",
-           "alugueis_mock.csv",
-           "imoveis_mock.csv"]
+csv_names=["inquilinos_mock.csv","proprietarios_mock.csv",
+           "alugueis_mock.csv","imoveis_mock.csv"]
 
 ##    Extract data with and store in data frame  4 times  
 
+#df_inq=csv_to_df(path_csv_folder,csv_names[0])  #   Iquilinos
+#df_prop=csv_to_df(path_csv_folder,csv_names[1]) #   Proprietarios
+df_alug=csv_to_df(path_csv_folder,csv_names[2]) #   Alugueis
+df_imo=csv_to_df(path_csv_folder,csv_names[3])  #   Imoveis
 
-try:
-    path=os.path.join(path_csv_folder,csv_names[0]) #   Iquilinos
-    df_inq=pd.read_csv(path, sep=",")
-except Exception as e:
-    print(f"Erro in reading {csv_names[0]}", str(e))
-    
-try:
-    path=os.path.join(path_csv_folder,csv_names[1]) #   Proprietarios
-    df_prop=pd.read_csv(path, sep=",")
-except Exception as e:
-    print(f"Erro in reading {csv_names[1]}", str(e))    
-    
-try:
-    path=os.path.join(path_csv_folder,csv_names[2]) #   Alugueis
-    df_alug=pd.read_csv(path, sep=",")
-except Exception as e:
-    print(f"Erro in reading {csv_names[2]}", str(e))
+##  Correct id_imovel duplicates
+        
+df_alug=replace_duplicates(df_alug,"id_aluguel",1000)
+df_alug=replace_duplicates(df_alug,"id_imovel",100)
 
-try:
-    path=os.path.join(path_csv_folder,csv_names[3]) #   Imoveis
-    df_imo=pd.read_csv(path, sep=",")
-except Exception as e:
-    print(f"Erro in reading {csv_names[3]}", str(e))    
+##  Forces that all id_imovel apear in df_imo
 
-##  Correct id_imovel mismatch
+df_imo["id_imovel"]=df_alug["id_imovel"]
 
-try:
-    df_alug['id_imovel']=df_imo['id_imovel']
-except Exception as e:
-    print("Error in correction", str(e))
-
+df_dup=df_imo["id_imovel"].duplicated(keep="first")
+print(df_imo[df_dup])
 ##  Loading data to database
 
-#   para cada df fazer a sequência de insert into
-#   Dentro de cada df fazer intertuples para inserir no banco
-#       Não está claro como conseguirei a lista de valores para enviar ao insert
-#       Farei com iterrows por enquanto
+#df_to_database(df_inq,"tbl_inquilinos",df_inq.columns)
+#df_to_database(df_prop,"tbl_proprietarios",df_prop.columns)
+#df_to_database(df_imo,"tbl_imoveis",df_imo.columns)
+#df_to_database(df_alug,"tbl_alugueis",df_alug.columns)
+
+
 
