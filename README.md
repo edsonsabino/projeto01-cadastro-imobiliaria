@@ -2,26 +2,44 @@
 
 Esse projeto busca criar um sistema de cadastro para uma imobiliária fictícia. 
 
-# Introução
+# Introdução
+
+Apresentar esse sistema de cadastro é uma forma de exercitar conhecimentos de python, SQL e do paradigma de orientação a objeto que são tão comuns na área de engenharia de dados
 
 # Objetivos
+
+Simular a funcionalidade de cadastro de uma imobiliária fictícia
 
 # Tecnologias e ferramentas
 * Python
 * SQL
-* Mockaroo.com 
+ 
 # Resolução
 
 1. Criação das classes que serão usadas para cadastro
-    > Escolhi usar POO para que pudesse realizar todos os tipos de tratamento dos dados de entrada dentro de uma classe e que enventuais manutenções ficassem isoladas.
+    > Escolhi usar POO para que pudesse realizar todos os tipos de tratamento dos dados de entrada dentro de uma classe e que enventuais manutenções ficassem isoladas. [Modules](http://www.google.fr/ "Script")
 
 2. Criação das tabelas no MySQL workbench
-    Script [Named Link](http://www.google.fr/ "Script")
+[SQL Script](http://www.google.fr/ "Script")
+
 3. Criação da classe conectora python-MySQL workbench
+[InterageDB](http://www.google.fr/ "Script")
+
 4. Criação da classe Cadastro
-<details>
-           <summary>Classe cadastro</summary>
-           <p>Faz o cadastro de todos os elementos de uma lista</p>
-         </details>
+> Onde foi implementado o menu de interação com o usuário. [Cadastro](http://www.google.fr/ "Script")
+
 5. Criação de script para ingestão de dados de fonte CSV.
+> Nessa parte foi necessário fazer tratamento de dados uma vez que foram encontrados duplicados de chaves primárias nos arquivos gerados com o mokcaroo. Para resolver isso funções de tratamento foram criadas [Popula bancos](http://www.google.fr/ "Script") [Functions](http://www.google.fr/ "Script")
 6. Criação de menu
+
+# Conclusão e trabalhos futuros
+
+O programa se mostra funcional e cumpre seu papel como excercício. Ao longo do processo algumas ideias de funcionalidades e expansões surgiram como:
+
+* Fazer tratamento de de possíveis erros de digitação do usuário.
+
+* Dockerizar a solução e o banco de dados e subir num cluster de k8s
+
+* Criar uma interface web com stremlit e subir no GCP (cloud RUN, cloud function)
+
+* Implementar funções de busca na base de dados
