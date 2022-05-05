@@ -56,22 +56,14 @@ class interageDB:
             print("Erro no desconectar",str(e))
 
     ##  Método selecionar    
-    def selecionar(self, o_que, de_onde, argumento):
-        """Selects data from a database
+    def selecionar(self, query):
 
-        Args:
-            o_que (_string_): what is to look for
-            de_onde (_string_): in wich table to look for
-            argumento (_string_): arguments to enrich the query statement
-
-        Returns:
-            _object_: _list of tuples with retrieved data_
-        """
         try:
             (obj_con, ft) = self.conectar()
-            query="SELECT "+o_que+" FROM "+de_onde+argumento+";"
             ft.execute(query)
-            return ft.fetchall()
+            
+            for item in ft.fetchall():
+                print(item)
                     
         except Exception as e:
             print("Erro em selecionar",str(e))

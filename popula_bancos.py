@@ -1,7 +1,10 @@
-from functions.replace_duplicates import replace_duplicates
+
 from modules.InterageDB import interageDB
+
+from functions.replace_duplicates import replace_duplicates
 from functions.df_to_database import df_to_database
 from functions.csv_to_df import csv_to_df
+
 import pandas as pd
 import os 
 

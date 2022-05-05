@@ -5,17 +5,31 @@ from modules.InterageDB import interageDB
 if __name__ == "__main__":
     
     obj_teste=Cadastro()
-    obj_teste.faz_cadastro()
+    print ("Bem vindo ao sistema de cadastro da imobiliária XPTO")
     
-    #var_teste=obj_teste.var_pessoa.nome
-    #print(var_teste)
-    list_valores=['b3', '1941-01-23']
-    #print (type(list_valores[1]))
+    try:
+        resp=int(input ("""Digite a opção que deseja
+                1 para cadastrar
+                2 para executar algum comando SQL
+                3 para fazer fazer um select
+                4 para sair
+           """
+           ))
+    except Exception as e:
+        print ("Error in input")
+        
+    if resp==4:
+        print("Saiu do programa") 
 
-    #obj_teste=interageDB('root','#Es181192','localhost','db_imobiliaria')
-    #obj_teste.insert_table('tbl_inquilinos',list_atributos,list_valores)
-
-    lista=obj_teste.selecionar('*','tbl_inquilinos',"")
-
-    for elemento in lista:
-        print(elemento)
+    elif resp==1:
+        obj_cadastro=Cadastro()
+        obj_cadastro.faz_cadastro()
+    elif resp==2:
+        obj_db=interageDB("root","#Es181192","localhost","db_imobiliaria")
+        sql_string=input("Digite o comando SQL: ")
+        obj_db.execute(sql_string)
+    elif resp==3:
+        obj_db=interageDB("root","#Es181192","localhost","db_imobiliaria")
+        sql_string=input("Digite o comando SQL: ")
+        obj_db.selecionar(sql_string)
+    
