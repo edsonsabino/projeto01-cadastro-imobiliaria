@@ -1,5 +1,6 @@
 import mysql.connector
 
+
 #TO DO: função que cria a string da query
 class interageDB:
     

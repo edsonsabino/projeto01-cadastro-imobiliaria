@@ -1,5 +1,7 @@
 from modules.Cadastro import Cadastro
 from modules.InterageDB import interageDB
+from config.database_info import database_infos
+
 
 
 if __name__ == "__main__":
@@ -32,4 +34,4 @@ if __name__ == "__main__":
         obj_db=interageDB("root","#Es181192","localhost","db_imobiliaria")
         sql_string=input("Digite o comando SQL: ")
         obj_db.selecionar(sql_string)
-    
+
