@@ -3,9 +3,9 @@ from dotenv import load_dotenv # para buscar .env files
 
 load_dotenv()
 
-database_infos={
+db_infos={
     "database": os.getenv("DATABASE"),
-    "user": os.getenv("USERNAME"),
+    "user": os.getenv("USUARIO"),
     "host": os.getenv("HOST"),
-    "password": os.getenv("PASSWORD"),     
+    "password": os.getenv("PASSWORD")     
 }

@@ -2,15 +2,16 @@ from modules.Aluguel import Aluguel
 from modules.Imovel import Imovel
 from modules.Pessoa import Pessoa
 from modules.InterageDB import interageDB
+from config.database_info import db_infos
 
 class Cadastro(Pessoa,Imovel, Aluguel, interageDB):
-    
+    print ('\nentrei no cadastro namoral\n')
     ##  Atributos de classe
     
     var_pessoa=Pessoa()
     var_imovel=Imovel()
     var_aluguel=Aluguel()
-    var_interageDB=interageDB('root','#Es181192','localhost','db_imobiliaria')
+    var_interageDB=interageDB(db_infos["user"],db_infos["password"],db_infos["host"],db_infos["database"])
 
     def faz_cadastro(self):
         control=True
@@ -19,8 +20,8 @@ class Cadastro(Pessoa,Imovel, Aluguel, interageDB):
             
             print("\nO que voce gostaria de fazer\n ")
             print ("1 - para cadastrar um novo inquilino")
-            print ("2 - para cadastrar um novo proprietario")
-            print ("3 - para cadastrar um novo imovek")
+            print ("2 - para cadastrar um novo proprietário(a)")
+            print ("3 - para cadastrar um novo imovél")
             print ("4 - para cadastrar um novo Aluguel")
             print ("0 - para sair do cadastro")
             

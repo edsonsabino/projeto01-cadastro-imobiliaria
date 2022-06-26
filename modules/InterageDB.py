@@ -1,7 +1,8 @@
 import mysql.connector
 
 
-#TO DO: função que cria a string da query
+#TO DO: colocar mensagens de sucesso em cada cadastro
+# 
 class interageDB:
     
     ##  Atributos de classe
@@ -12,7 +13,7 @@ class interageDB:
     nome_banco=""
     
     ##  Construtor da classe    
-    def __init__(self,vusuario='root',vsenha="#Es181192",vhost="localhost",vnome_banco="db_imobiliaria"):
+    def __init__(self,vusuario='',vsenha="",vhost="",vnome_banco=""):
         
         try:
             self.usuario=vusuario

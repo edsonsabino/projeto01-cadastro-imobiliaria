@@ -4,12 +4,14 @@ from modules.InterageDB import interageDB
 from functions.replace_duplicates import replace_duplicates
 from functions.df_to_database import df_to_database
 from functions.csv_to_df import csv_to_df
+from config.database_info import db_infos
 
 import pandas as pd
-import os 
+import os
+ 
 
 ##   instanciar banco
-obj_banco=interageDB("root","#Es181192","localhost","db_imobiliaria")
+obj_banco=interageDB(db_infos["user"],db_infos["password"],db_infos["host"],db_infos["database"])
 
 ##   Path folder with csv's
 
