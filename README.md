@@ -33,7 +33,7 @@ Simular a funcionalidade de cadastro de uma imobiliária fictícia
     [Cadastro](modules/Cadastro.py "Script")
 
 5. Criação de script para ingestão de dados de fonte CSV.
-    > Nessa parte foi necessário fazer tratamento de dados uma vez que foram encontrados duplicados de chaves primárias nos arquivos gerados com o mokcaroo. Para resolver isso funções de tratamento foram criadas 
+    > Nessa parte foi necessário fazer tratamento de dados uma vez que foram encontrados valores duplicados de chaves primárias nos arquivos gerados com o mokcaroo. Para resolver isso, funções de tratamento foram criadas 
     * [Pasta com CSV](csv_data "Script")     
     * [Popula bancos](popula_bancos.py "Script") 
     * [Functions](functions "Script")
